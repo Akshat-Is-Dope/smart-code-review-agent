@@ -21,23 +21,18 @@ def analyze_bugs(code: str) -> dict:
         line number), 'issue' (description), and 'suggestion' (how to fix).
     """
     try:
+        lines = code.strip().splitlines()
         return {
             "status": "success",
             "analysis_type": "bug_detection",
-            "code": code,
-            "instruction": (
-                "Analyze this Python code for potential bugs. "
-                "Return findings as a list of objects with keys: "
-                "severity (critical/high/medium/low), line (int), "
-                "issue (str), suggestion (str). "
-                "If no bugs are found, return an empty list."
-            )
+            "total_lines": len(lines),
+            "code_received": True,
         }
     except Exception as e:
         return {
             "status": "error",
             "analysis_type": "bug_detection",
-            "error": str(e)
+            "error": str(e),
         }
 
 
@@ -58,23 +53,18 @@ def check_style(code: str) -> dict:
         idioms/imports), 'issue' (description), and 'suggestion' (improvement).
     """
     try:
+        lines = code.strip().splitlines()
         return {
             "status": "success",
             "analysis_type": "style_review",
-            "code": code,
-            "instruction": (
-                "Review this Python code for style and best practices. "
-                "Return findings as a list of objects with keys: "
-                "category (naming/formatting/docstrings/idioms/imports), "
-                "issue (str), suggestion (str). "
-                "If style is clean, return an empty list."
-            )
+            "total_lines": len(lines),
+            "code_received": True,
         }
     except Exception as e:
         return {
             "status": "error",
             "analysis_type": "style_review",
-            "error": str(e)
+            "error": str(e),
         }
 
 
@@ -98,23 +88,18 @@ def review_security(code: str) -> dict:
         'issue' (description), and 'remediation' (how to fix).
     """
     try:
+        lines = code.strip().splitlines()
         return {
             "status": "success",
             "analysis_type": "security_review",
-            "code": code,
-            "instruction": (
-                "Scan this Python code for security vulnerabilities. "
-                "Return findings as a list of objects with keys: "
-                "risk (critical/high/medium/low), issue (str), "
-                "remediation (str). "
-                "If no security issues found, return an empty list."
-            )
+            "total_lines": len(lines),
+            "code_received": True,
         }
     except Exception as e:
         return {
             "status": "error",
             "analysis_type": "security_review",
-            "error": str(e)
+            "error": str(e),
         }
 
 
