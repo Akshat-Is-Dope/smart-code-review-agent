@@ -1,2 +1,5 @@
 google-adk
 python-dotenv
+fastapi
+uvicorn[standard]
+requests
